@@ -14,7 +14,7 @@ In the first part of the project, we opted to handle ambiguous cases by assignin
 
 ## The case of the hamza 'ء' : 
 
-In Tunisia, the hamza weakens and is typically realized as /a/, similar to the alif. In certain areas of the Sahel, some words exhibit a realization of /i/ instead, particularly in final position. These variants correspond to geographical (diatopic) differences across the dialects.
+In Tunisia, the Standard Arabic hamza weakens and is typically realized as /a/, similar to the alif. In certain areas of the Sahel, some words exhibit a realization of /i/ instead, particularly in final position. These variants correspond to geographical (diatopic) differences across the dialects.
 
 ## The case of the ta marbouta 'ة' :
 
