@@ -25,3 +25,32 @@ print(conv_lett("khouya"))
 *Résultat du print :* ```كهoوyا```
 
 **Problème identifié** : les digrammes (`kh`, `gh`, `sh`, `ch`, `dh`) sont traités comme deux caractères séparés au lieu d'un seul son.
+
+## 28-03-2026 -- Résolution du problème des digrammes 
+
+Le problème des digrammes a été réglé en ramplaçant la boucle for par une boucle while :
+
+```python
+dico_arabizi = {'a':'ا', 'b':'ب', 't': 'ت', 'j':'ج', '7':'ح', '5': 'خ', 'kh' :'خ', 'd':'د', 'dh':'ذ', 'r':'ر', 'z': 'ز', 's':'س', 'ch': 'ش', 'sh': 'ش', '3':'ع', '8':'غ', 'gh':'غ', 'f':'ف', '9':'ق', 'q':'ق', 'k':'ك', 'l':'ل', 'm':'م', 'n':'ن', 'h':'ه','ou':'و', 'u':'و', 'i':'ي', '2': 'ء'}
+
+def conv_lett(mot):
+    mot_arabe = []
+    i = 0
+    while i < len(mot):
+        if mot[i:i+2] in dico_arabizi:
+            mot_arabe.append(dico_arabizi[mot[i:i+2]])
+            i += 2
+        elif mot[i] in dico_arabizi:
+            mot_arabe.append(dico_arabizi[mot[i]])
+            i += 1
+        else:
+            mot_arabe.append(mot[i])
+            i += 1 
+    return ''.join(mot_arabe)
+
+print(conv_lett("khouya"))
+```
+*Résultat du print :* ```خوyا```
+
+Le "kh" a bien été converti en "خ" mais un autre problème persiste : le problème des voyelles qui peuvent varier en fonction de leur contexte d'occurrence.
+
