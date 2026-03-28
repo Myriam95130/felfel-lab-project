@@ -56,6 +56,12 @@ print(conv_lett("khouya"))
 Le "kh" a bien été converti en "خ" et la transcription a bien été exécutée.
 Seulement, comment gérer le problème s'il s'agit d'un 'k' + un '7' retranscrit 'h' par l'utilisateur ?
 
+## PROBLÈMES NON RÉGLÉS
+
 Le convertisseur ne peut pas distinguer le digramme kh (خ) de la séquence k + h --> ك + ح (ex. akhal اكحل). Résoudre cette ambiguïté nécessiterait un lexique de référence.
 
 De plus, le convertisseur ne distingue pas les voyelles longues des voyelles courtes. En arabe, les voyelles courtes ne s'écrivent pas, tandis que les voyelles longues sont représentées par ا, و, ي. En Arabizi, les deux se notent de la même façon (a, i, u). Résoudre cette ambiguïté nécessiterait l'implémentation de règles phonologiques, notamment la contrainte du sukun (= absence de voyelle courte) : deux consonnes portant un sukun ne peuvent pas se suivre en arabe. Par exemple, dans ak7al (اكحل), le a est une voyelle courte qui vient avec le son laryndé, d'où le fait que la lettre précédente porte un sukun. Ainsi elle ne devrait pas être transcrit par un alif ا
+
+Autre problème, les lettres géminées : mm, pp, kk etc.
+
+Les emphatiques toujours. 
