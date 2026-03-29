@@ -30,6 +30,7 @@ def conv_lett(mot):
             i += 1 
     return ''.join(mot_arabe)
 
-mot = (input("Entrez un mot : ")).lower()
-print(conv_lett(mot))
+if __name__ == "__main__":
+      mot = (input("Entrez un mot : ")).lower()
+      print(conv_lett(mot))
 
