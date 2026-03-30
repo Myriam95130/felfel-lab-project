@@ -1,2 +1,6 @@
 pdfs/
 articles-scientifiques/
+.DS_Store
+*.pages
+FELFEL-LAB-HTML/
+*.pdf
