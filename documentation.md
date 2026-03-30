@@ -139,7 +139,7 @@ mot = (input("Entrez un mot : ")).lower()
 print(conv_lett(mot))
 ```
 
-## `syllabizer.py` : Syllabiseur de surface (CV)
+## 31-03-2026 -- `syllabizer.py` : Syllabiseur de surface (CV)
 
 ### Fonctionnement
 
