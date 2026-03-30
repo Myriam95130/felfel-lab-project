@@ -6,7 +6,9 @@ In the early 2000s, most keyboards were based on the Latin script and were not a
 
 This project aims to provide solutions for complex cases in the Arabizi writing system, such as emphatic consonants, the hamza and the tāʾ marbūṭa.
 
-## The case of emphatics 
+## COMPLEX CASES 
+
+## The case of emphatics الحروف المفخمة :
 
 Tunisian arabic is characterized by the weakening or reduction of emphatic consonants, including /ṭ/, /ẓ/, /ḍ/, and /ṣ/. 
 
@@ -19,3 +21,7 @@ In Tunisia, the Standard Arabic hamza weakens and is typically realized as /a/, 
 ## The case of the ta marbouta 'ة' :
 
 The tāʾ marbūṭa is a word-final form of the letter (ت). It is typically pronounced /a/ but it surfaces as /t/ in annexation structures, as in "my friend's car" --> "karahbet sa7bi". In this example, the tāʾ marbūṭa is realized as /t/ in karahba due to its phonological connection to the following word. Its primary function is to mark the feminine gender, it is not exclusively associated with feminine nouns, as some masculine words also carry this ending. It also shifts to the open tāʾ form (tāʾ maftūḥa) when followed by a suffix, as in the previous example. 
+
+## The case of short and long vowels الحركات :
+
+## The case of weak verbs الفعل المعتل :
