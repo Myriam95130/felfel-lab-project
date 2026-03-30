@@ -1,4 +1,4 @@
-## 27-03-2026 -- premiers jets de code
+## 27-03-2026 -- **converter.py** : premiers jets de code
 
 Avant de commencer à coder, nous avons repéré les principaux problèmes que pourraient poser certaines lettres au moment de la conversion. Un problème auquel j'ai pensé mais que je n'ai pas réussi à anticiper dans le code : les digrammes.
 
@@ -138,3 +138,70 @@ def conv_lett(mot):
 mot = (input("Entrez un mot : ")).lower()
 print(conv_lett(mot))
 ```
+
+## `syllabizer.py` : Syllabiseur de surface (CV)
+
+### Fonctionnement
+
+Attribue une étiquette `C` (consonne) ou `V` (voyelle) à chaque segment
+du mot arabizi, selon l'ordre de priorité suivant :
+
+1. Digrammes consonantiques (`kh`, `gh`...) --> `C` (`i += 2`)
+2. Semi-consonnes `y` et `w` en position initiale ou post-consonantique --> `C`
+3. Digramme vocalique `ou` --> `V` (`i += 2`)
+4. Consonnes simples --> `C`
+5. Voyelles simples --> `V`
+6. Chiffres (consonnes) --> ajoutées 
+
+### Exemples
+
+| Mot arabizi | Structure CV |
+|-------------|-------------|
+| `khouya`    | `CVVV`      |
+| `yesta3mel` | `CVCCVCCVC` |
+| `twensa`    | `CCVCCV`    |
+| `ak7al`      | `VCCVC`      |
+
+### Note linguistique importante
+
+L'Arabizi ne note pas la distinction voyelle courte/longue.
+Toutes les voyelles (`a`, `e`, `i`, `o`, `u`) sont traitées de façon
+identique comme `V`. Cette fonction produit donc une **structure CV
+de surface uniquement** et non une représentation phonologique profonde.
+
+## Conventions arabizi
+
+| Arabizi | Arabe | Phonème |
+|---------|-------|---------|
+| `3`     | ع     | /ʕ/     |
+| `7`     | ح     | /ħ/     |
+| `q`  ou `9`   | ق     | /q/     |
+| `ou`    | و     | /u/ ou /w/|
+| `kh` ou `5`   | خ     | /x/     |
+| `gh` ou `8`   | غ     | /ɣ/     |
+| `ch`    | ش     | /ʃ/     |
+
+## Feuille de route
+
+### Court terme
+- [ ] Intégrer `converter.py` et `syllabizer.py` dans un pipeline unifié
+- [ ] Ajouter des cas de test couvrant la variation dialectale
+- [ ] Enrichir l'inventaire des digrammes dans `converter.py`
+
+### Moyen terme
+- [ ] Implémenter la segmentation syllabique selon le
+      **Principe du Début Maximum**
+- [ ] Gérer les préfixes/suffixes morphologiques
+      (patrons de conjugaison verbale)
+
+### Long terme : pistes de recherche
+- [ ] Reconnaissance des schèmes morphologiques (`CCC`, `CCVC`, `CCvCC`...)
+      pour restituer la distinction voyelle courte/longue sous-jacente au sein des verbes dans un premier temps
+- [ ] Croisement avec un lexique arabe annoté (Buckwalter / SAMA)
+      pour relier les formes arabizi de surface à des entrées arabes annotées
+- [ ] Adaptation d'analyseurs morphologiques de l'arabe standard
+      à l'Arabizi dialectal tunisien
+- [ ] Étiquetage morpho-syntaxique pour l'Arabizi tunisien
+
+## Auteure
+Myriam Ben Hadj Sghaier — M1 TAL INALCO / Sorbonne Nouvelle / Paris Nanterre
