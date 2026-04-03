@@ -301,5 +301,26 @@ arabizi | arabe_dialectal | phonétique_AL | arabe_littéral | scheme_vocalique 
 - **Vocalisation automatique** --> entraîner un modèle seq2seq sur des paires arabizi → arabe vocalisé
 - **Lexique comparatif arabe littéraire / tunisien dialectal** --> avec colonnes phonétique IPA, schème, catégorie, traductions
 
+## 5. Décision : Transducteurs à états finis (FST)
+
+### Pourquoi pas maintenant
+
+Le passage aux FST a été envisagé pour formaliser les règles de `conv_lett()`. Cependant la décision est de **reporter** cette étape pour les raisons suivantes :
+
+- Les problèmes actuels (diphtongues, hamza, tāʾ marbūṭa) ne seront **pas résolus** par les FST seuls ; ils nécessitent un lexique dans tous les cas. 
+
+### Ce que les FST résoudraient
+
+La logique de `conv_lett()` est déjà un transducteur informel. Un FST formel permettrait de :
+- Rendre les règles plus lisibles et maintenables
+- Composer plusieurs transducteurs (normalisation + conversion + vocalisation)
+- S'interfacer avec des outils académiques (`foma`, `hfst`)
+
+### Feuille de route FST
+
+1. Finir le lexique TSV --> résout les ambiguïtés actuelles
+2. Intégrer la fonction `lookup()` dans `converter.py`
+3. Reformuler les règles de `conv_lett()` en FST avec `pynini`
+
 ## Auteure
 Myriam Ben Hadj Sghaier — M1 TAL INALCO / Sorbonne Nouvelle / Paris Nanterre
