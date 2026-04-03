@@ -1,4 +1,4 @@
-dico_arabizi = {'a':'ا', 'b':'ب', 't': 'ت', 'j':'ج', '7':'ح', 'h':'ح', '5': 'خ', 'kh' :'خ', 'd':'د', 'dh':'ذ', 'r':'ر', 'z': 'ز', 's':'س', 'ch': 'ش', 'sh': 'ش', '3':'ع', '8':'غ', 'gh':'غ', 'f':'ف', '9':'ق', 'q':'ق', 'k':'ك', 'l':'ل', 'm':'م', 'n':'ن', 'h':'ه','ou':'و', 'o':'و', 'u':'و', 'i':'ي', 'y':'ي', '2': 'ء'
+dico_arabizi = {'a':'ا', 'b':'ب', 't': 'ت', 'j':'ج', '7':'ح', 'h':'ح', '5': 'خ', 'kh' :'خ', 'd':'د', 'dh':'ذ', 'r':'ر', 'z': 'ز', 's':'س', 'ch': 'ش', 'sh': 'ش', '3':'ع', '8':'غ', 'gh':'غ', 'f':'ف', '9':'ق', 'q':'ق', 'k':'ك', 'l':'ل', 'm':'م', 'n':'ن', 'h':'ه','ou':'و', 'o':'و', 'u':'و', 'w':'و', 'i':'ي', 'y':'ي', '2': 'ء'
                  }
 
 def conv_lett(mot):
@@ -6,9 +6,10 @@ def conv_lett(mot):
                     # aucune voyelle en vue au début du mot donc False
                     # NB : EN ARABE DEUX VOYELLES NE PEUVENT SE SUIVRE
                     # Si on repère une voyelle avant puis après, on ignore la deuxième
-    voyelles = ['a', 'i', 'y', 'o', 'ou', 'e']
+    voyelles = ['a', 'i', 'o', 'ou', 'e'] # le schwa remplace souvent le son 'i' ou 'a' court placé sur les consonnes
     mot_arabe = []
     i = 0
+
 
     while i < len(mot):
         if mot[i:i+2] in dico_arabizi: # digrammes
@@ -20,6 +21,22 @@ def conv_lett(mot):
             last_CV = False
             mot_arabe.append('ّ')
             i += 2
+        elif mot[i] in ['y', 'w']:
+            if i+1 < len(mot): #and mot[i+1] in voyelles: # and mot[i+1] not in ['y', 'w'] and not (i+1 == len(mot)-1
+                # suivi d'une voyelle (courte) = semi-consonne 
+                if mot_arabe and mot_arabe[-1] in ['ا', 'و', 'ي']:
+                    mot_arabe.pop()
+                    last_CV = False
+                mot_arabe.append(dico_arabizi[mot[i]])
+                last_CV = False 
+                i += 1
+                
+            else: 
+                #  # voyelle pure toujours transcrite (pas de vérification last_CV)
+                mot_arabe.append(dico_arabizi[mot[i]])
+                last_CV = True 
+                i += 1
+
         elif mot[i] in voyelles: # voyelle repérée 
             if last_CV: # est-ce qu'on en a vu une ? 
                 i += 1 # si oui, on l'ignore et on passe au caractère suivant 
@@ -28,6 +45,7 @@ def conv_lett(mot):
                    mot_arabe.append(dico_arabizi[mot[i]]) # --> oui on la transcriit 
                last_CV = True # True, il y a une voyelle 
                i += 1 # alors on passe caractère suivant
+        
         elif mot[i] in dico_arabizi: # consonne
             mot_arabe.append(dico_arabizi[mot[i]])
             last_CV = False
