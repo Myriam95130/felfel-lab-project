@@ -26,9 +26,13 @@ In Tunisia, the Standard Arabic hamza weakens and is typically realized as /a/, 
 
 The tāʾ marbūṭa is a word-final form of the letter (ت). It is typically pronounced /a/ but it surfaces as /t/ in annexation structures, as in "my friend's car" --> "karahbet sa7bi". In this example, the tāʾ marbūṭa is realized as /t/ in karahba due to its phonological connection to the following word. Its primary function is to mark the feminine gender, it is not exclusively associated with feminine nouns, as some masculine words also carry this ending. It also shifts to the open tāʾ form (tāʾ maftūḥa) when followed by a suffix, as in the previous example. 
 
-## The case of weak verbs الأفعال المعتلة:
-
 ## The case of geminate nouns and verbs :
 
-## The case of short and long vowels :  
+## The case of irregular verbs الأفعال المعتلة:
+
+- geminate / doubled verbs الفعل المضعف
+- hamzated verbs الفعل المهموز
+- weak / hollow verbs الفعل المعتل
+
+## The case of short and long vowels الحركات وحروف العلة :  
 
